@@ -11,9 +11,9 @@ class RouterComponent extends React.Component {
     render() {
         return (
             <Routes>
-                <Route path="/" element={<DashboardController />} />
+                <Route path='*' element={<NotFound />} />
 
-                <Route element={<NotFound />} />
+                <Route path="/" element={<DashboardController />} />
             </Routes>
         )
     }

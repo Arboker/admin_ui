@@ -1,8 +1,12 @@
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+
 const NotFound = () => {
     return (
-        <div>
+        <Box component="main" sx={{ width: "100%" }}>
+            <Toolbar />
             Not Found!
-        </div>
+        </Box>
     )
 }
 

@@ -1,3 +1,8 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+.sidebar_list a {
+    text-decoration: none;
+    color: black;
+}

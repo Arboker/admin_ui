@@ -8,8 +8,12 @@ import TabPanel from '../components/TabPanel'
 import Button from '@mui/material/Button';
 import { DateRangePicker } from 'react-date-range';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Card from '@mui/material/Card';
 
 import { formatDate } from '../../helpers/main';
+import Chart from "react-apexcharts";
 
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
@@ -46,29 +50,60 @@ const Dashboard = (props) => {
                     </Tabs>
                 </Box>
             </Box>
-            <TabPanel value={props.state.tabValue} index={0} className="dashboard_panel_calendar">
-                <Button variant="contained" className="mui_button" sx={{ background: "#7ba63d" }}>Configura raport</Button>
-                <div className="range_picker_container">
-                    <div className="range_picker_result" onClick={() => props.toggleDD(!props.state.open)}>
-                        <div className="range_picker_result_content">
-                            <span>{formatDate(props.state.dateRange.startDate)}</span>
-                            <span> - </span>
-                            <span>{formatDate(props.state.dateRange.endDate)}</span>
+            <TabPanel value={props.state.tabValue} index={0} className="tab_panel_block">
+                <Box className="dashboard_panel_calendar">
+                    <Button variant="contained" className="mui_button" sx={{ background: "#7ba63d" }}>Configura raport</Button>
+                    <div className="range_picker_container">
+                        <div className="range_picker_result" onClick={() => props.toggleDD(!props.state.open)}>
+                            <div className="range_picker_result_content">
+                                <span>{formatDate(props.state.dateRange.startDate)}</span>
+                                <span> - </span>
+                                <span>{formatDate(props.state.dateRange.endDate)}</span>
+                            </div>
+                            <ArrowDropDownIcon />
                         </div>
-                        <ArrowDropDownIcon />
+                        {props.state.open ? (
+                            <div className="range_picker">
+                                <DateRangePicker
+                                    ranges={[props.state.dateRange]}
+                                    onChange={props.handleSelect}
+                                    rangeColors={["#7ba63d"]}
+                                    showDateDisplay={false}
+                                />
+                            </div>
+                        ) : ""}
                     </div>
-                    {props.state.open ? (
-                        <div className="range_picker">
-                            <DateRangePicker
-                                ranges={[props.state.dateRange]}
-                                onChange={props.handleSelect}
-                                rangeColors={["#7ba63d"]}
-                                showDateDisplay={false}
-                            />
-                        </div>
-                    ) : ""}
-                </div>
+                </Box>
+
+                <Card sx={{ width: "fit-content", marginTop: 2 }}>
+                    <CardContent>
+                        <Typography sx={{ fontSize: 14 }} gutterBottom>
+                            Instalari pe dispozitive active
+                        </Typography>
+                        <Box className="installs_container">
+                            <span style={{ fontSize: 23 }}>
+                                5,489
+                            </span>
+                            <span style={{ fontSize: 14 }}>
+                                +3.79% vs previous 30days
+                            </span>
+                        </Box>
+                    </CardContent>
+                </Card>
+
+                <Card className="card_chart_container">
+                    <CardContent>
+                        <Chart
+                            options={props.state.options}
+                            series={props.state.series}
+                            height="300"
+                            type="line"
+                        />
+                    </CardContent>
+                </Card>
+
             </TabPanel>
+
             <TabPanel value={props.state.tabValue} index={1}>
             </TabPanel>
         </Box>

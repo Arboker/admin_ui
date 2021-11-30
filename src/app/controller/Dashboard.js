@@ -13,6 +13,32 @@ class Dashboard extends React.Component {
                 key: 'selection',
             },
             open: false,
+            options: {
+                chart: {
+                    id: "basic-bar",
+                    toolbar: {
+                        show: false
+                    },
+                    type: "area"
+                },
+                stroke: {
+                    show: true,
+                    curve: 'smooth',
+                    lineCap: 'butt',
+                    colors: undefined,
+                    width: 2,
+                    dashArray: 0,
+                },
+                xaxis: {
+                    categories: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                }
+            },
+            series: [
+                {
+                    name: "value",
+                    data: [30, 40, 45, 50, 49, 60, 70, 91]
+                }
+            ]
         }
     }
 

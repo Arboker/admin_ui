@@ -6,6 +6,13 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import TabPanel from '../components/TabPanel'
 import Button from '@mui/material/Button';
+import { DateRangePicker } from 'react-date-range';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+
+import { formatDate } from '../../helpers/main';
+
+import 'react-date-range/dist/styles.css'; // main style file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 
 function a11yProps(index) {
     return {
@@ -16,7 +23,7 @@ function a11yProps(index) {
 
 const Dashboard = (props) => {
     return (
-        <Box component="main" sx={{ width: "100%" }}>
+        <Box component="main" sx={{ width: "100%" }} className="dashboard_box">
             <Box className="header_content_box">
                 <Toolbar />
                 <Typography
@@ -39,7 +46,28 @@ const Dashboard = (props) => {
                     </Tabs>
                 </Box>
             </Box>
-            <TabPanel value={props.state.tabValue} index={0}>
+            <TabPanel value={props.state.tabValue} index={0} className="dashboard_panel_calendar">
+                <Button variant="contained" className="mui_button" sx={{ background: "#7ba63d" }}>Configura raport</Button>
+                <div className="range_picker_container">
+                    <div className="range_picker_result" onClick={props.toggleDD}>
+                        <div className="range_picker_result_content">
+                            <span>{formatDate(props.state.dateRange.startDate)}</span>
+                            <span> - </span>
+                            <span>{formatDate(props.state.dateRange.endDate)}</span>
+                        </div>
+                        <ArrowDropDownIcon />
+                    </div>
+                    {props.state.open ? (
+                        <div className="range_picker">
+                            <DateRangePicker
+                                ranges={[props.state.dateRange]}
+                                onChange={props.handleSelect}
+                                rangeColors={["#7ba63d"]}
+                                showDateDisplay={false}
+                            />
+                        </div>
+                    ) : ""}
+                </div>
             </TabPanel>
             <TabPanel value={props.state.tabValue} index={1}>
             </TabPanel>

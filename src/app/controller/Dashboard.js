@@ -26,12 +26,12 @@ class Dashboard extends React.Component {
         })
     };
 
-    toggleDD = () => {
+    toggleDD = (bool) => {
         this.setState({
             open: !this.state.open
         })
 
-        if (!this.state.open) {
+        if (bool) {
             document.addEventListener('click', this.handleClickDD, false);
         }
         else {
@@ -41,7 +41,7 @@ class Dashboard extends React.Component {
 
     handleClickDD = (e) => {
         if (!e.target.closest(".range_picker_container")) {
-            this.toggleDD()
+            this.toggleDD(false)
         }
     }
 

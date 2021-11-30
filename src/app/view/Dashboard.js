@@ -49,7 +49,7 @@ const Dashboard = (props) => {
             <TabPanel value={props.state.tabValue} index={0} className="dashboard_panel_calendar">
                 <Button variant="contained" className="mui_button" sx={{ background: "#7ba63d" }}>Configura raport</Button>
                 <div className="range_picker_container">
-                    <div className="range_picker_result" onClick={props.toggleDD}>
+                    <div className="range_picker_result" onClick={() => props.toggleDD(!props.state.open)}>
                         <div className="range_picker_result_content">
                             <span>{formatDate(props.state.dateRange.startDate)}</span>
                             <span> - </span>

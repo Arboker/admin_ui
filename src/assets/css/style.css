@@ -1,3 +1,7 @@
+:root {
+    --second-color: #7ba63d;
+}
+
 * {
     font-family: 'Roboto', sans-serif;
 }
@@ -5,4 +9,24 @@
 .sidebar_list a {
     text-decoration: none;
     color: black;
+}
+
+.Mui-selected .tab_element {
+    color: white;
+}
+
+.tab_element {
+    color: rgb(238, 238, 238);
+}
+
+.header_content_box {
+    background: var(--second-color);
+}
+
+.header_padding {
+    padding: 15px 30px;
+}
+
+.header_tabs_box {
+    padding: 0px 30px;
 }

@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 
 import DashboardController from '../app/controller/Dashboard'
+import DashboardApi from './api/Dashboard'
 import NotFound from './NotFound'
 
 class RouterComponent extends React.Component {

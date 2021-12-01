@@ -1,3 +1,7 @@
+:root {
+    --second-color: #7ba63d;
+}
+
 * {
     font-family: 'Roboto', sans-serif;
 }
@@ -5,4 +9,83 @@
 .sidebar_list a {
     text-decoration: none;
     color: black;
+}
+
+.Mui-selected .tab_element {
+    color: white;
+}
+
+.tab_panel_block {
+    width: calc(100% - 100px);
+}
+
+.tab_element {
+    color: rgb(238, 238, 238);
+}
+
+.header_content_box {
+    background: var(--second-color);
+}
+
+.header_padding {
+    padding: 15px 30px;
+}
+
+.header_tabs_box {
+    padding: 0px 30px;
+}
+
+.dashboard_box .css-cb6pwc-MuiButtonBase-root-MuiButton-root:hover {
+    background: #75a039;
+}
+
+.range_picker {
+    background-color: white;
+    width: fit-content;
+    border-radius: 4px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.12);
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+    z-index: 9;
+}
+
+.dashboard_panel_calendar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.range_picker_result {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 300px;
+    background-color: rgb(238, 238, 238);
+    padding: 10px 12px;
+    border-radius: 4px;
+}
+
+.range_picker_container {
+    position: relative;
+}
+
+.installs_container {
+    display: flex;
+    align-items: end;
+}
+
+.installs_container span:first-child {
+    margin-right: 10px;
+    position: relative;
+    top: 3px;
+}
+
+.card_chart_container {
+    margin-top: 16px;
+}
+
+.dashboard_container {
+    margin-top: 16px;
 }

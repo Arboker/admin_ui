@@ -47,6 +47,7 @@
     position: absolute;
     right: 0;
     margin-top: 5px;
+    z-index: 9;
 }
 
 .dashboard_panel_calendar {
@@ -82,5 +83,9 @@
 }
 
 .card_chart_container {
+    margin-top: 16px;
+}
+
+.dashboard_container {
     margin-top: 16px;
 }

@@ -8,9 +8,9 @@ import TabPanel from '../components/TabPanel'
 import Button from '@mui/material/Button';
 import { DateRangePicker } from 'react-date-range';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
+import DashboardTabel from '../components/DashboardTabel'
 
 import { formatDate } from '../../helpers/main';
 import Chart from "react-apexcharts";
@@ -101,6 +101,8 @@ const Dashboard = (props) => {
                         />
                     </CardContent>
                 </Card>
+
+                <DashboardTabel />
 
             </TabPanel>
 

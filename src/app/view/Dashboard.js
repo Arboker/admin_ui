@@ -51,7 +51,7 @@ const Dashboard = (props) => {
                 </Box>
             </Box>
             <TabPanel value={props.state.tabValue} index={0} className="tab_panel_block">
-                <Box className="dashboard_panel_calendar">
+                <div className="dashboard_panel_calendar">
                     <Button variant="contained" className="mui_button" sx={{ background: "#7ba63d" }}>Configura raport</Button>
                     <div className="range_picker_container">
                         <div className="range_picker_result" onClick={() => props.toggleDD(!props.state.open)}>
@@ -73,11 +73,11 @@ const Dashboard = (props) => {
                             </div>
                         ) : ""}
                     </div>
-                </Box>
+                </div>
 
                 <Card sx={{ width: "fit-content", marginTop: 2 }}>
                     <CardContent>
-                        <Typography sx={{ fontSize: 14 }} gutterBottom>
+                        <Typography component={'span'} sx={{ fontSize: 14 }} gutterBottom>
                             Instalari pe dispozitive active
                         </Typography>
                         <Box className="installs_container">

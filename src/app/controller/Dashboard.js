@@ -1,6 +1,7 @@
 import DashboardView from '../view/Dashboard'
 import React from 'react';
 import { createElement } from 'react';
+import DashboardService from '../../services/Dashboard'
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -40,6 +41,12 @@ class Dashboard extends React.Component {
                 }
             ]
         }
+    }
+
+    componentDidMount = () => {
+        DashboardService.getDashboard().then(res => {
+            console.log(res)
+        })
     }
 
     handleChangeTab = (event, newValue, key) => {

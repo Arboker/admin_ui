@@ -7,19 +7,16 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(date, users, usesUnic, usersTotal) {
+  return { date, users, usesUnic, usersTotal };
 }
 
-const rows = [
-  createData('21/08/2021', 159, 6.0, 24),
-  createData('22/08/2021', 237, 9.0, 37),
-  createData('23/08/2021', 262, 16.0, 24),
-  createData('24/08/2021', 305, 3.7, 67),
-  createData('25/08/2021', 356, 16.0, 49),
-];
+const DashboardTabel = (data) => {
+   
+    const rows = data.data.map(item => {
+        return createData(item.date, item.users, item.unic_users, item.unic_users)
+    })
 
-const DashboardTabel = () => {
     return (
         <TableContainer component={Paper} className="dashboard_container">
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -32,18 +29,17 @@ const DashboardTabel = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+                    {rows.map((row, index) => (
                         <TableRow
-                            key={row.name}
+                            key={index}
                             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row">
-                                {row.name}
+                                {row.date}
                             </TableCell>
-                            <TableCell align="right">{row.calories}</TableCell>
-                            <TableCell align="right">{row.fat}</TableCell>
-                            <TableCell align="right">{row.carbs}</TableCell>
-                            <TableCell align="right">{row.protein}</TableCell>
+                            <TableCell align="right">{row.users}</TableCell>
+                            <TableCell align="right">{row.usesUnic}</TableCell>
+                            <TableCell align="right">{row.usersTotal}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

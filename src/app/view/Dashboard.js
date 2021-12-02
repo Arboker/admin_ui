@@ -69,40 +69,51 @@ const Dashboard = (props) => {
                                     onChange={props.handleSelect}
                                     rangeColors={["#7ba63d"]}
                                     showDateDisplay={false}
+                                    minDate={props.state.smallestDate}
+                                    maxDate={new Date()}
                                 />
                             </div>
                         ) : ""}
                     </div>
                 </div>
 
-                <Card sx={{ width: "fit-content", marginTop: 2 }}>
-                    <CardContent>
-                        <Typography component={'span'} sx={{ fontSize: 14 }} gutterBottom>
-                            Instalari pe dispozitive active
-                        </Typography>
-                        <Box className="installs_container">
-                            <span style={{ fontSize: 23 }}>
-                                5,489
-                            </span>
-                            <span style={{ fontSize: 14 }}>
-                                +3.79% vs previous 30days
-                            </span>
-                        </Box>
-                    </CardContent>
-                </Card>
+                {!props.state.loading ? (
+                    <>
+                        <Card sx={{ width: "fit-content", marginTop: 2 }}>
+                            <CardContent>
+                                <Typography component={'span'} sx={{ fontSize: 14 }} gutterBottom>
+                                    Instalari pe dispozitive active
+                                </Typography>
+                                <Box className="installs_container">
+                                    <span style={{ fontSize: 23 }}>
+                                        {props.getCardDaysInfo().total}
+                                    </span>
+                                    <span style={{ fontSize: 14 }}>
+                                        {props.getCardDaysInfo().perc}% vs previous {props.getCardDaysInfo().days}days
+                                    </span>
+                                </Box>
+                            </CardContent>
+                        </Card>
 
-                <Card className="card_chart_container">
-                    <CardContent>
-                        <Chart
-                            options={props.state.options}
-                            series={props.state.series}
-                            height="300"
-                            type="line"
-                        />
-                    </CardContent>
-                </Card>
-
-                <DashboardTabel />
+                        <Card className="card_chart_container">
+                            <CardContent>
+                                <Chart
+                                    options={props.state.options}
+                                    series={props.state.series}
+                                    height="300"
+                                    type="line"
+                                />
+                            </CardContent>
+                        </Card>
+                        <DashboardTabel data={props.state.tableData} />
+                    </>
+                ) : (
+                    <Card className="card_loader">
+                        <CardContent>
+                            <div className="loader"></div>
+                        </CardContent>
+                    </Card>
+                )}
 
             </TabPanel>
 

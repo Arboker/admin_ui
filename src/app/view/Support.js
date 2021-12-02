@@ -1,12 +1,72 @@
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
+import TextField from '@mui/material/TextField';
+import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import Typography from '@mui/material/Typography';
 
-const Support = () => {
+const Support = (props) => {
     return (
-        <Box component="main" sx={{ width: "100%" }} className="dashboard_box">
+        <Box component="main" sx={{ width: "100%" }}>
             <Box>
                 <Toolbar />
-                Support
+                <Box className="header_content_box">
+                    <Typography
+                        variant="h5"
+                        component="div"
+                        style={{ fontWeight: 600, color: "white" }}
+                        className="header_padding"
+                    >
+                        Suport
+                    </Typography>
+                </Box>
+                <div className="support_box">
+                    <span className="support_title">Cauta utilizator:</span>
+                    <div class="support_text_fields">
+                        <TextField
+                            id="standard-multiline-flexible"
+                            label="INDP"
+                            multiline
+                            maxRows={4}
+                            value={props.state.idnp}
+                            onChange={e => props.handleChangeInput(e, "idnp")}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            InputProps={{
+                                className: "support_input"
+                            }}
+                            variant="standard"
+                        />
+                        <TextField
+                            id="standard-multiline-flexible"
+                            label="Nr. telefon"
+                            multiline
+                            maxRows={4}
+                            value={props.state.phone}
+                            onChange={e => props.handleChangeInput(e, "phone")}
+                            InputLabelProps={{
+                                shrink: true,
+                            }}
+                            variant="standard"
+                        />
+                        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                            <DesktopDatePicker
+                                label="Date desktop"
+                                inputFormat="MM/dd/yyyy"
+                                value={props.state.date}
+                                onChange={props.handleChangeDate}
+                                renderInput={(params) => <TextField {...params}
+                                    InputLabelProps={{
+                                        shrink: true
+                                    }}
+                                    variant="standard"
+                                />}
+                            />
+                        </LocalizationProvider>
+                    </div>
+                </div>
             </Box>
         </Box>
     )

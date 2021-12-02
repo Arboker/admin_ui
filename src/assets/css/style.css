@@ -123,6 +123,35 @@
     z-index: 99;
 }
 
+.support_box {
+    padding: 20px 30px;
+}
+
+.support_title {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.support_text_fields {
+    padding-top: 10px;
+}
+
+.support_text_fields .MuiTextField-root {
+    margin-right: 20px;
+}
+
+.support_text_fields .MuiTextField-root:last-child {
+    margin-right: 0px;
+}
+
+.support_box .css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused {
+    color: var(--second-color);
+}
+
+.support_box .css-5xn5lu-MuiInputBase-root-MuiInput-root:after, .support_box .css-1480iag-MuiInputBase-root-MuiInput-root:after {
+    border-bottom-color: var(--second-color);
+}
+
 @keyframes loading {
     0% {
         -webkit-transform: rotate(0deg);

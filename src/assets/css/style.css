@@ -164,6 +164,11 @@
     margin-top: 20px;
 }
 
+.support_box_loader {
+    display: flex;
+    align-items: center;
+}
+
 @keyframes loading {
     0% {
         -webkit-transform: rotate(0deg);

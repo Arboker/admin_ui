@@ -72,3 +72,7 @@ export const getDateArray = (start, end, format) => {
     }
     return arr;
 }
+
+export const formatFullDate = date => {
+    return date.getHours() + ":" + date.getHours() + " " + formatDateFunc(date)
+}

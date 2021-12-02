@@ -16,7 +16,7 @@ class DashboardService {
 
     getSmallestDate = () => {
         return new Promise((resolve, reject) => {
-            if (!returnJSON()) {
+            if (!returnSmallestDate()) {
                 return setTimeout(
                     () => reject(new Error('Dashboard was not found')),
                     250

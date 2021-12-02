@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 
 import DashboardController from '../app/controller/Dashboard'
+import SupportController from '../app/controller/Support'
 import NotFound from './NotFound'
 
 class RouterComponent extends React.Component {
@@ -14,6 +15,7 @@ class RouterComponent extends React.Component {
                 <Route path='*' element={<NotFound />} />
 
                 <Route path="/" element={<DashboardController />} />
+                <Route path="/support" element={<SupportController />} />
             </Routes>
         )
     }

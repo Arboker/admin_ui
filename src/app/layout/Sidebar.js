@@ -33,12 +33,14 @@ const Sidebar = () => {
                             <ListItemText primary="Dashboard" />
                         </ListItem>
                     </Link>
-                    <ListItem button key="Support">
-                        <ListItemIcon>
-                            <SupportIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Support" />
-                    </ListItem>
+                    <Link to="/support">
+                        <ListItem button key="Support">
+                            <ListItemIcon>
+                                <SupportIcon />
+                            </ListItemIcon>
+                            <ListItemText primary="Support" />
+                        </ListItem>
+                    </Link>
                 </List>
             </Box>
         </Drawer>

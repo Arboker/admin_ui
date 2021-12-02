@@ -5,6 +5,8 @@ import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import SupportTable from '../components/SupportTabel'
 
 const Support = (props) => {
     return (
@@ -65,6 +67,13 @@ const Support = (props) => {
                                 />}
                             />
                         </LocalizationProvider>
+                        <Button variant="contained" className="mui_button" sx={{ background: "#7ba63d" }}>Cauta</Button>
+                    </div>
+
+                    <div className="support_box_table">
+                        <span className="support_title">Rezultate cautare: John</span>
+
+                        <SupportTable />
                     </div>
                 </div>
             </Box>

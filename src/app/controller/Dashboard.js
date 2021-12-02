@@ -35,6 +35,7 @@ class Dashboard extends React.Component {
             series: [],
             loading: false,
             tableData: [],
+            allTableData: [],
             smallestDate: null
         }
     }
@@ -115,8 +116,9 @@ class Dashboard extends React.Component {
                 this.setState({
                     options: options,
                     series: series,
-                    loading: false,
-                    tableData: results
+                    tableData: results,
+                    allTableData: res.data,
+                    loading: false
                 })
             }
             else {
@@ -126,6 +128,41 @@ class Dashboard extends React.Component {
                 alert("Error was occurred!")
             }
         })
+    }
+
+    getCardDaysInfo = () => {
+        const currentDatesSelcted = getDateArray(this.state.dateRange.startDate, this.state.dateRange.endDate, "string");
+
+        const statisticsNowDays = this.state.allTableData.filter(({ date }) => {
+            return currentDatesSelcted.find((el) => el === date)
+        }).reduce((a, b) => a + b.users, 0)
+
+        return {
+            total: statisticsNowDays,
+            perc: this.getPercentage(this.state.allTableData),
+            days: currentDatesSelcted.length
+        }
+    }
+
+    getPercentage = (tableData) => {
+        const currentDates = getDateArray(this.state.dateRange.startDate, this.state.dateRange.endDate);
+        const pasteDates = currentDates.map((el) => {
+            return formatDateFunc(new Date(el.setDate(el.getDate() - currentDates.length)))
+        })
+
+        const currentDatesSelcted = getDateArray(this.state.dateRange.startDate, this.state.dateRange.endDate, "string");
+
+        const statisticsNowDays = tableData.filter(({ date }) => {
+            return currentDatesSelcted.find((el) => el === date)
+        }).reduce((a, b) => a + b.users, 0)
+        const statisticsPasteDates = tableData.filter(({ date }) => {
+            return pasteDates.find((el) => el === date)
+        }).reduce((a, b) => a + b.users, 0)
+        
+        console.log(statisticsNowDays)
+        console.log(statisticsPasteDates)
+        const pers = Math.floor((statisticsNowDays - statisticsPasteDates) * 100 / statisticsNowDays)
+        return pers;
     }
 
     handleChangeTab = (event, newValue, key) => {

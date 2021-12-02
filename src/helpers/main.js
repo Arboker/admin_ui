@@ -59,11 +59,15 @@ export const toDate = (str) => {
     return ""
 }
 
-export const getDateArray = (start, end) => {
+export const getDateArray = (start, end, format) => {
     var arr = new Array();
     var dt = new Date(start);
     while (dt <= end) {
-        arr.push(new Date(dt));
+        let res = new Date(dt)
+        if (format && format === "string") {
+            res = formatDateFunc(res)
+        }
+        arr.push(res);
         dt.setDate(dt.getDate() + 1);
     }
     return arr;

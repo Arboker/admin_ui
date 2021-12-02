@@ -86,10 +86,10 @@ const Dashboard = (props) => {
                                 </Typography>
                                 <Box className="installs_container">
                                     <span style={{ fontSize: 23 }}>
-                                        5,489
+                                        {props.getCardDaysInfo().total}
                                     </span>
                                     <span style={{ fontSize: 14 }}>
-                                        +3.79% vs previous 30days
+                                        {props.getCardDaysInfo().perc}% vs previous {props.getCardDaysInfo().days}days
                                     </span>
                                 </Box>
                             </CardContent>

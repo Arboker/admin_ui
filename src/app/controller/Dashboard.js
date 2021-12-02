@@ -42,12 +42,16 @@ class Dashboard extends React.Component {
 
     componentDidMount = () => {
         this.getData();
+
+        this.interval = setInterval(() => this.getData(null, true), 10000);
     }
 
-    getData = (ranges) => {
-        this.setState({
-            loading: true
-        })
+    getData = (ranges, loading) => {
+        if (!loading) {
+            this.setState({
+                loading: true
+            })
+        }
         DashboardService.getSmallestDate().then(res => {
             this.setState({
                 smallestDate: toDate(res)
@@ -158,7 +162,7 @@ class Dashboard extends React.Component {
         const statisticsPasteDates = tableData.filter(({ date }) => {
             return pasteDates.find((el) => el === date)
         }).reduce((a, b) => a + b.users, 0)
-        
+
         console.log(statisticsNowDays)
         console.log(statisticsPasteDates)
         const pers = Math.floor((statisticsNowDays - statisticsPasteDates) * 100 / statisticsNowDays)
@@ -199,6 +203,10 @@ class Dashboard extends React.Component {
             dateRange: ranges.selection
         })
         this.getData(ranges.selection);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     render() {

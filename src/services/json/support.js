@@ -36,9 +36,9 @@ export const returnJSONSearch = (idnp, phone, date) => {
     }
     if (date) {
         res = res.filter(item => {
-            return (item.transaction.getFullYear() == date.getFullYear()) &&
-            (item.transaction.getMonth() == date.getMonth()) &&
-            (item.transaction.getDate() == date.getDate())
+            return (item.transaction.getFullYear() === date.getFullYear()) &&
+            (item.transaction.getMonth() === date.getMonth()) &&
+            (item.transaction.getDate() === date.getDate())
         })
     }
     return res;

@@ -80,9 +80,9 @@ class Dashboard extends React.Component {
                     const currDate = new Date(toDate(item.date).setHours(0, 0, 0, 0));
                     const getDateDist = getDateArray(startDay, endDay)
                     return getDateDist.find(date => {
-                        return (date.getFullYear() == currDate.getFullYear()) &&
-                            (date.getMonth() == currDate.getMonth()) &&
-                            (date.getDate() == currDate.getDate())
+                        return (date.getFullYear() === currDate.getFullYear()) &&
+                            (date.getMonth() === currDate.getMonth()) &&
+                            (date.getDate() === currDate.getDate())
                     })
                 })
             }
@@ -102,7 +102,7 @@ class Dashboard extends React.Component {
 
                 for (let i = 0; i < pageNames.length; i++) {
                     const pageArr = []
-                    results.map(item => {
+                    results.forEach(item => {
                         const currLength = sumOfPages.length
                         const currPage = item.pages[currLength]
                         pageArr.push(currPage.users)

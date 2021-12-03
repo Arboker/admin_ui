@@ -60,8 +60,8 @@ export const toDate = (str) => {
 }
 
 export const getDateArray = (start, end, format) => {
-    var arr = new Array();
-    var dt = new Date(start);
+    const arr = [];
+    const dt = new Date(start);
     while (dt <= end) {
         let res = new Date(dt)
         if (format && format === "string") {

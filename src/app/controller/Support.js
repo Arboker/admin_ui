@@ -15,6 +15,10 @@ class Support extends React.Component {
     }
 
     componentDidMount = () => {
+        this.getAllData();
+    }
+
+    getAllData = () => {
         this.setState({
             loading: true
         })
@@ -41,7 +45,7 @@ class Support extends React.Component {
     search = () => {
         const { idnp, phone, date } = this.state
 
-        if (idnp || phone || date) {
+        if (idnp && idnp.trim() !== "" || phone && phone.trim() !== "" || date) {
             this.setState({
                 loading: true
             })
@@ -51,6 +55,9 @@ class Support extends React.Component {
                     loading: false
                 })
             })
+        }
+        else {
+            this.getAllData();
         }
     }
 

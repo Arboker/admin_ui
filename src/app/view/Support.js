@@ -27,12 +27,12 @@ const Support = (props) => {
                 {!props.state.loading ? (
                     <div className="support_box">
                         <span className="support_title">Cauta utilizator:</span>
-                        <div class="support_text_fields">
+                        <div className="support_text_fields">
                             <TextField
                                 id="standard-multiline-flexible"
                                 label="INDP"
                                 multiline
-                                maxRows={4}
+                                maxRows={1}
                                 value={props.state.idnp}
                                 onChange={e => props.handleChangeInput(e, "idnp")}
                                 InputLabelProps={{
@@ -47,7 +47,7 @@ const Support = (props) => {
                                 id="standard-multiline-flexible"
                                 label="Nr. telefon"
                                 multiline
-                                maxRows={4}
+                                maxRows={1}
                                 value={props.state.phone}
                                 onChange={e => props.handleChangeInput(e, "phone")}
                                 InputLabelProps={{

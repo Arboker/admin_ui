@@ -163,8 +163,6 @@ class Dashboard extends React.Component {
             return pasteDates.find((el) => el === date)
         }).reduce((a, b) => a + b.users, 0)
 
-        console.log(statisticsNowDays)
-        console.log(statisticsPasteDates)
         const pers = Math.floor((statisticsNowDays - statisticsPasteDates) * 100 / statisticsNowDays)
         return pers;
     }

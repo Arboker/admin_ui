@@ -1,16 +1,11 @@
-export const formatDate = (date) => {
-    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-    ];
+import moment from 'moment'
 
-    return date.getDate() + " " + monthNames[date.getMonth()] + " " + date.getFullYear();
+export const formatDate = (date) => {
+    return moment(date).format("D MMM YYYY");
 }
 
 export const formatDateFunc = date => {
-    if (date) {
-        return ("0" + (date.getDate())).slice(-2) + "." + ("0" + (date.getMonth() + 1)).slice(-2) + "." + date.getFullYear();
-    }
-    return ""
+    return moment(date).format("DD.MM.YYYY")
 }
 
 export const createPasteDate = (day) => {
@@ -74,5 +69,5 @@ export const getDateArray = (start, end, format) => {
 }
 
 export const formatFullDate = date => {
-    return date.getHours() + ":" + date.getHours() + " " + formatDateFunc(date)
+    return moment(date).format("h:mm DD.MM.YYYY")
 }

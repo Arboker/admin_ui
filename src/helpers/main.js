@@ -39,7 +39,7 @@ export const randomNumSum = (top, n) => {
         }
     }
 
-    return getDiffs(top, n).map((_, i, a) => a.reduce((acc, c, j) => j <= i ? acc + c : acc)).reverse();
+    return getDiffs(top, n).map((_, i, a) => a.reduce((acc, c, j) => j <= i ? acc + c : acc));
 }
 
 export const toDate = (str) => {

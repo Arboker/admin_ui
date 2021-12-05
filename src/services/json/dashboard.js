@@ -16,7 +16,7 @@ for (let i = 0; i <= 90; i++) {
         pages: []
     }
 
-    const usersPage = randomNumSum(users, pageNames.length).reverse();
+    const usersPage = randomNumSum(users, pageNames.length);
     for (let j = 0; j < pageNames.length; j++) {
         obj.pages.push({
             name: "Page " + pageNames[j],

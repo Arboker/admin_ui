@@ -14,8 +14,7 @@ function createData(name, idnp, phone, pan, transaction) {
 
 const SupportTable = (props) => {
     const rows = props.data.map(item => {
-        item.transactionStr = formatFullDate(item.transaction);
-        return createData(item.name, item.idnp, item.phone, item.pan, item.transactionStr)
+        return createData(item.name, item.idnp, item.phone, item.pan, item.transaction)
     })
   return (
     <TableContainer component={Paper} className="support_table">
@@ -41,7 +40,7 @@ const SupportTable = (props) => {
               <TableCell align="right">{row.idnp}</TableCell>
               <TableCell align="right">{row.phone}</TableCell>
               <TableCell align="right">{row.pan}</TableCell>
-              <TableCell align="right">{row.transaction}</TableCell>
+              <TableCell align="right">{formatFullDate(row.transaction)}</TableCell>
             </TableRow>
           ))}
         </TableBody>

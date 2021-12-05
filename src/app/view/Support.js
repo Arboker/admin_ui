@@ -78,9 +78,15 @@ const Support = (props) => {
                         </div>
 
                         <div className="support_box_table">
-                            <span className="support_title">Rezultate cautare: John</span>
+                            {props.state.data.length !== 0 ? (
+                                <>
+                                    <span className="support_title">Rezultate cautare: John</span>
 
-                            <SupportTable data={props.state.data} />
+                                    <SupportTable data={props.state.data} />
+                                </>
+                            ) : (
+                                <span className="support_title">Nu s-a găsit nimic pentru criteriile de filtrare selectate</span>
+                            )}
                         </div>
                     </div>
                 ) : (
